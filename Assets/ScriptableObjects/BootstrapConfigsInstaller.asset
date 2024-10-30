@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18d8d3ee3c8bed44bb2afabb2edc4468, type: 3}
+  m_Name: BootstrapConfigsInstaller
+  m_EditorClassIdentifier: 
+  windowsPrefabsContainer: {fileID: 11400000, guid: 1c638fe9728373249abfb74d0d102b86, type: 2}
+  uiConfiguration: {fileID: 11400000, guid: 259ce6a23674ab74c966f67820ff7ad8, type: 2}
