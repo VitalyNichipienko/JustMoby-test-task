@@ -17,7 +17,7 @@ namespace UI.Windows.PurchaseOffer
         
         public void Initialize()
         {
-            
+            _purchaseOfferWindowView.UpdateView(_purchaseOfferWindowModel.CurrentOffer.Offer);
         }
     }
 }

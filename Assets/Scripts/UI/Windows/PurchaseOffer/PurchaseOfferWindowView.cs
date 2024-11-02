@@ -1,7 +1,10 @@
+using Core.Data;
+using Core.Infrastructure;
 using TMPro;
 using UI.Buttons;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace UI.Windows.PurchaseOffer
 {
@@ -12,12 +15,28 @@ namespace UI.Windows.PurchaseOffer
         [SerializeField] private Image _offerImage;
         [SerializeField] private Transform _gridContentTransform;
         [SerializeField] private PurchaseButton _purchaseButton;
+
+        [SerializeField] private PurchaseItem _purchaseItemPrefab;
         
-        public void UpdateView(string header, string description, Sprite icon)
+        private CommonFactory _commonFactory;
+
+        [Inject]
+        private void Construct(CommonFactory commonFactory)
         {
-            _headerText.text = header;
-            _descriptionText.text = description;
-            _offerImage.sprite = icon;
+            _commonFactory = commonFactory;
+        }
+        
+        public void UpdateView(Offer offer)
+        {
+            _headerText.text = offer.OfferName;
+            _descriptionText.text = offer.OfferDescription;
+            //_offerImage.sprite = icon;
+
+            foreach (var item in offer.Items)
+            {
+                var purchaseItem = _commonFactory.Instantiate(_purchaseItemPrefab, _gridContentTransform);
+                purchaseItem.Initialize(item.IconName, item.Count);
+            }
         }
     }
 }

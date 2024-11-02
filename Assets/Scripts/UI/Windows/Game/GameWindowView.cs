@@ -1,16 +1,11 @@
-using UI.Configurations;
-using Zenject;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI.Windows.Game
 {
     public class GameWindowView : Window
     {
-        private UiConfiguration _uiConfiguration;
-        
-        [Inject]
-        private void Construct(UiConfiguration uiConfiguration)
-        {
-            _uiConfiguration = uiConfiguration;
-        }
+        [field: SerializeField] public Button ReceiveOfferButton { get; private set; }
+        [field: SerializeField] public ItemCountInputField ItemCountInputField { get; private set; }
     }
 }

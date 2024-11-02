@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Core.Data;
 using Core.Infrastructure;
 using Core.Infrastructure.SceneLoad;
 using Core.Infrastructure.Services.CoroutineRunner;
@@ -22,6 +23,12 @@ namespace Core.Initialization
             BindUiManager();
             BindSceneLoader();
             BindGameStateMachine();
+            BindGameData();
+        }
+
+        private void BindGameData()
+        {
+            Container.Bind<GameData>().FromNew().AsSingle().NonLazy();
         }
 
         private void BindCommonFactory() => 
