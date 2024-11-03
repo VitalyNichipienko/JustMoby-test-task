@@ -18,18 +18,20 @@ namespace Core.Infrastructure.Services.ResourceLoader
                 return resource;
             }
 
-            await UniTask.SwitchToMainThread();
-            
-            resource = Resources.Load<T>(resourcePath);
+            var asyncOperation = Resources.LoadAsync<T>(resourcePath);
+    
+            await asyncOperation.ToUniTask();
 
-            if (resource == null)
+            var loadedResource = asyncOperation.asset as T;
+
+            if (loadedResource == null)
             {
                 Debug.LogError($"[{nameof(ResourceLoaderService)}] Resource not found at path: {resourcePath}");
                 return null;
             }
 
-            _cache[resourcePath] = resource;
-            return resource;
+            _cache[resourcePath] = loadedResource;
+            return loadedResource;
         }
 
         public async UniTask<Sprite> LoadSpriteAsync(string spriteName)
