@@ -29,7 +29,7 @@ namespace UI.Buttons
         private void SetActiveDiscountUI(int discountPrice, int regularPrice, int discountPercentage)
         {
             _discountPriceText.text = discountPrice.ToString();
-            _regularPriceText.text = regularPrice.ToString();
+            _regularPriceText.text = $"<s>{regularPrice.ToString()}</s>";
             _discountPercentageText.text = discountPercentage.ToString();
 
             SetUIElementsActive(true);

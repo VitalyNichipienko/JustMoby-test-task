@@ -5,6 +5,7 @@ using Core.Infrastructure;
 using Core.Infrastructure.Services.ResourceLoader;
 using TMPro;
 using UI.Buttons;
+using UI.Elems;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

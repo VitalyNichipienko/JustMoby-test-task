@@ -1,11 +1,10 @@
 using System;
-using Core.Data;
 using Core.Data.Game;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace UI
+namespace UI.Elems
 {
     public class ItemCountInputField : MonoBehaviour
     {
