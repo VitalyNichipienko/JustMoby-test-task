@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: IconsSpriteAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 93cd625b4308fc0458733d9cee1e6dca, type: 3}
+    - {fileID: 2800000, guid: 875717e15daf3e64190e29fe9be076f2, type: 3}
+    - {fileID: 2800000, guid: dbb3407936f662845a6f346d40f9dbd1, type: 3}
+    - {fileID: 2800000, guid: 05f9fa274230326428ae8db584e11549, type: 3}
+    - {fileID: 2800000, guid: afcbede6d26342940a2ca3e47a34b3e8, type: 3}
+    - {fileID: 2800000, guid: d3ac78f6269a35440a16779da1428f3e, type: 3}
+    - {fileID: 2800000, guid: 1f69574e7d8aa5a4686cc120fdc59fa7, type: 3}
+    - {fileID: 2800000, guid: 70c7cb8d22a90e046a94a6e139234031, type: 3}
+    - {fileID: 2800000, guid: 6c5981578e805704c8c88e07dcb41c56, type: 3}
+    - {fileID: 2800000, guid: fd694db96fe112f4dbeb8b83cb03985c, type: 3}
+    - {fileID: 2800000, guid: d1ccdb911d3588947af676412269ddd2, type: 3}
+    - {fileID: 2800000, guid: 62d0fe987377305408973e804f29dc89, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: d1ccdb911d3588947af676412269ddd2, type: 3}
+  - {fileID: 21300000, guid: 875717e15daf3e64190e29fe9be076f2, type: 3}
+  - {fileID: 21300000, guid: afcbede6d26342940a2ca3e47a34b3e8, type: 3}
+  - {fileID: 21300000, guid: d3ac78f6269a35440a16779da1428f3e, type: 3}
+  - {fileID: 21300000, guid: 05f9fa274230326428ae8db584e11549, type: 3}
+  - {fileID: 21300000, guid: 6c5981578e805704c8c88e07dcb41c56, type: 3}
+  - {fileID: 21300000, guid: 62d0fe987377305408973e804f29dc89, type: 3}
+  - {fileID: 21300000, guid: dbb3407936f662845a6f346d40f9dbd1, type: 3}
+  - {fileID: 21300000, guid: fd694db96fe112f4dbeb8b83cb03985c, type: 3}
+  - {fileID: 21300000, guid: 93cd625b4308fc0458733d9cee1e6dca, type: 3}
+  - {fileID: 21300000, guid: 70c7cb8d22a90e046a94a6e139234031, type: 3}
+  - {fileID: 21300000, guid: 1f69574e7d8aa5a4686cc120fdc59fa7, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - TorchIcon
+  - BeginnerBuilder'sKitIcon
+  - Explorer'sKitIcon
+  - IronIcon
+  - ConstructionResourcesIcon
+  - SpearIcon
+  - WoodIcon
+  - CampfireIcon
+  - StonesIcon
+  - AxeIcon
+  - SkinIcon
+  - RopeIcon
+  m_RenderDataMap: {}
+  m_Tag: IconsSpriteAtlas
+  m_IsVariant: 0
