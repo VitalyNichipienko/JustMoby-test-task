@@ -38,15 +38,14 @@ namespace UI.Elems
             if (int.TryParse(input, out int value))
             {
                 value = Mathf.Clamp(value, _minValue, _maxValue);
-                _inputField.text = value.ToString();
-
-                OnValueChanged?.Invoke(value);
             }
             else
             {
-                Debug.LogError(
-                    $"[{typeof(ItemCountInputField)}] Invalid input: '{input}'. Please enter a valid integer between {_minValue} and {_maxValue}");
+                value = _minValue;
             }
+            
+            _inputField.text = value.ToString();
+            OnValueChanged?.Invoke(value);
         }
     }
 }
