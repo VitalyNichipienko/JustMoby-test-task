@@ -16,7 +16,8 @@ MonoBehaviour:
   - <OfferId>k__BackingField: Construction Resources
     <Offer>k__BackingField:
       <OfferName>k__BackingField: Construction Resources
-      <OfferDescription>k__BackingField: Construction Resources
+      <OfferDescription>k__BackingField: Conquer the skies and build the raft of
+        your dreams
       <OfferIconName>k__BackingField: ConstructionResourcesIcon
       <RegularPrice>k__BackingField: 100
       <DiscountPercentage>k__BackingField: 35
@@ -27,7 +28,8 @@ MonoBehaviour:
   - <OfferId>k__BackingField: Beginner Builder's Kit
     <Offer>k__BackingField:
       <OfferName>k__BackingField: Beginner Builder's Kit
-      <OfferDescription>k__BackingField: Beginner Builder's Kit
+      <OfferDescription>k__BackingField: Helps you install all the essential structures
+        on your raft
       <OfferIconName>k__BackingField: BeginnerBuilder'sKitIcon
       <RegularPrice>k__BackingField: 200
       <DiscountPercentage>k__BackingField: 27
@@ -48,7 +50,8 @@ MonoBehaviour:
   - <OfferId>k__BackingField: Explorer's Kit
     <Offer>k__BackingField:
       <OfferName>k__BackingField: Explorer's Kit
-      <OfferDescription>k__BackingField: Explorer's Kit
+      <OfferDescription>k__BackingField: Embark on your journey with everything an
+        adventurer needs to uncover new horizon
       <OfferIconName>k__BackingField: Explorer'sKitIcon
       <RegularPrice>k__BackingField: 200
       <DiscountPercentage>k__BackingField: 27
