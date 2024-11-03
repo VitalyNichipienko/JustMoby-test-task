@@ -1,5 +1,5 @@
 # JustMoby test task
  
 <p align="center">
-  <img src="Screenshots/GameWindow.jpg" width="500" alt="PurchaseOfferWindow" />
+  <img src="Screenshots/PurchaseOfferWindow.png" width="1000" alt="PurchaseOfferWindow" />
 </p>
