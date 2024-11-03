@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using Core.Data;
+using Core.Data.Game;
 using Core.Infrastructure;
 using Core.Infrastructure.SceneLoad;
 using Core.Infrastructure.Services.CoroutineRunner;
+using Core.Infrastructure.Services.ResourceLoader;
 using Core.Infrastructure.StateMachine;
 using Core.Infrastructure.States;
 using Core.Infrastructure.UiManagement;
@@ -14,7 +16,7 @@ namespace Core.Initialization
 {
     public class BootstrapInstaller : MonoInstaller
     {
-        [SerializeField] private CoroutineRunner coroutineRunner;
+        [SerializeField] private CoroutineRunner _coroutineRunner;
         
         public override void InstallBindings()
         {
@@ -24,6 +26,12 @@ namespace Core.Initialization
             BindSceneLoader();
             BindGameStateMachine();
             BindGameData();
+            BindResourceLoaderService();
+        }
+
+        private void BindResourceLoaderService()
+        {
+            Container.Bind<ResourceLoaderService>().AsSingle().NonLazy();
         }
 
         private void BindGameData()
@@ -31,24 +39,32 @@ namespace Core.Initialization
             Container.Bind<GameData>().FromNew().AsSingle().NonLazy();
         }
 
-        private void BindCommonFactory() => 
+        private void BindCommonFactory()
+        {
             Container.Bind<CommonFactory>().FromInstance(new CommonFactory(Container)).AsSingle();
-        
-        private void BindUiManager() => 
+        }
+
+        private void BindUiManager()
+        {
             Container.Bind<UiManager>().AsSingle().NonLazy();
-        
-        private void BindCoroutineRunner() => 
-            Container.Bind<ICoroutineRunner>().FromInstance(coroutineRunner).AsSingle();
-        
-        private void BindSceneLoader() => 
+        }
+
+        private void BindCoroutineRunner()
+        {
+            Container.Bind<ICoroutineRunner>().FromInstance(_coroutineRunner).AsSingle();
+        }
+
+        private void BindSceneLoader()
+        {
             Container.Bind<SceneLoader>().AsSingle().NonLazy();
+        }
 
         private void BindGameStateMachine()
         {
-            GameStateMachine<IState> stateMachine = new GameStateMachine<IState>();
+            var stateMachine = new GameStateMachine<IState>();
             Container.Bind<GameStateMachine<IState>>().FromInstance(stateMachine).AsSingle();
   
-            Dictionary<Type, IState> states = new Dictionary<Type, IState>
+            var states = new Dictionary<Type, IState>
             {
                 [typeof(BootstrapState)] = Container.Instantiate<BootstrapState>(),
                 [typeof(LoadSceneState)] = Container.Instantiate<LoadSceneState>(),

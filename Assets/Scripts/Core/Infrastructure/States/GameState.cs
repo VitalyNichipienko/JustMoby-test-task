@@ -6,13 +6,17 @@ namespace Core.Infrastructure.States
 {
     public class GameState : IState
     {
-        private UiManager _uiManager;
+        private readonly UiManager _uiManager;
         
         [Inject]
-        public GameState(UiManager uiManager) => 
+        public GameState(UiManager uiManager)
+        {
             _uiManager = uiManager;
+        }
 
-        public void Enter() => 
+        public void Enter()
+        {
             _uiManager.ShowWindow<GameWindowView>();
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace Core.Infrastructure.SceneLoad
         private const float SceneLoadOperationMaxProgress = 0.9f;
         
         private readonly ICoroutineRunner _coroutineRunner;
-        private UiManager _uiManager;
+        private readonly UiManager _uiManager;
         private bool _canBeLoaded;
 
         [Inject]
@@ -24,12 +24,14 @@ namespace Core.Infrastructure.SceneLoad
             _uiManager = uiManager;
         }
 
-        public void Load(LoadingScenes scene, Action onLoaded = null) => 
+        public void Load(LoadingScenes scene, Action onLoaded = null)
+        {
             _coroutineRunner.StartCoroutine(LoadScene(scene.ToString(), onLoaded));
+        }
 
         private IEnumerator LoadScene(string nextScene, Action onLoaded = null)
         {
-            AsyncOperation waitNextScene = SceneManager.LoadSceneAsync(nextScene);
+            var waitNextScene = SceneManager.LoadSceneAsync(nextScene);
             waitNextScene.allowSceneActivation = false;
             
             _uiManager.ShowWindow<LoadingWindow>();

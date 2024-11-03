@@ -14,14 +14,19 @@ namespace UI.Windows.PurchaseOffer
             BindPurchaseOfferWindowController();
         }
 
-        private void BindPurchaseOfferWindowView() =>
+        private void BindPurchaseOfferWindowView()
+        {
             Container.Bind<PurchaseOfferWindowView>().FromInstance(_purchaseOfferWindowView).AsSingle().NonLazy();
+        }
 
-        private void BindPurchaseOfferWindowModel() =>
+        private void BindPurchaseOfferWindowModel()
+        {
             Container.Bind<PurchaseOfferWindowModel>().AsSingle().NonLazy();
-            //Container.Bind<IInitializable>().To<PurchaseOfferWindowModel>().AsSingle().NonLazy();
+        }
 
-        private void BindPurchaseOfferWindowController() => 
+        private void BindPurchaseOfferWindowController()
+        {
             Container.Bind<IInitializable>().To<PurchaseOfferWindowController>().AsSingle().NonLazy();
+        }
     }
 }

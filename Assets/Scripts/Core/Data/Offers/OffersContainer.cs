@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Core.Data
+namespace Core.Data.Offers
 {
     [CreateAssetMenu(menuName = "Containers/Create offers container", fileName = "OffersContainer")]
     public class OffersContainer : ScriptableObject

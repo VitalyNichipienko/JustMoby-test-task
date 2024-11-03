@@ -9,7 +9,8 @@ namespace Core.Infrastructure.UiManagement
     {
         private int _currentSortingOrder;
         private WindowsPool _windowsPool;
-        private Dictionary<Type, Window> _createdWindows = new Dictionary<Type, Window>();
+        private readonly Dictionary<Type, Window> _createdWindows = new Dictionary<Type, Window>();
+        private readonly List<Type> _windowsStack = new List<Type>();
 
         private WindowsPool WindowsPool
         {
@@ -26,11 +27,11 @@ namespace Core.Infrastructure.UiManagement
         
         public void ShowWindow<T>() where T : Window
         {
-            HideAllWindows();
-
-            Window window = GetOrCreateWindow<T>();
+            var window = GetOrCreateWindow<T>();
+            
             if (window != null)
             {
+                UpdateWindowStack(window, true);
                 window.Show();
             }
         }
@@ -38,6 +39,21 @@ namespace Core.Infrastructure.UiManagement
         public void Clear()
         {
             _createdWindows.Clear();
+            _windowsStack.Clear();
+        }
+        
+        public void CloseCurrentWindow()
+        {
+            if (_windowsStack.Count == 0)
+                return;
+
+            var currentWindow = CurrentWindow();
+            
+            if (currentWindow != null)
+            {
+                UpdateWindowStack(currentWindow, false);
+                currentWindow.Hide();
+            }
         }
         
         private void HideAllWindows()
@@ -46,11 +62,14 @@ namespace Core.Infrastructure.UiManagement
             {
                 window.Hide();
             }
+            
+            _windowsStack.Clear();
         }
 
         private Window GetOrCreateWindow<T>() where T : Window
         {
-            Type windowType = typeof(T);
+            var windowType = typeof(T);
+            
             if (_createdWindows.TryGetValue(windowType, out Window window))
             {
                 return window;
@@ -63,13 +82,54 @@ namespace Core.Infrastructure.UiManagement
 
         private Window GetWindow<T>() where T : Window
         {
-            Type windowType = typeof(T);
+            var windowType = typeof(T);
+            
             if (_createdWindows.TryGetValue(windowType, out Window window))
             {
                 return window;
             }
 
             return null;
+        }
+        
+        private Window CurrentWindow()
+        {
+            if (_windowsStack.Count == 0)
+                return null;
+            
+            var currentWindowType = _windowsStack[_windowsStack.Count - 1];
+            _createdWindows.TryGetValue(currentWindowType, out Window currentWindow);
+            return currentWindow;
+        }
+
+        private void UpdateWindowStack(Window window, bool active)
+        {
+            var windowType = window.GetType();
+
+            _windowsStack.Remove(windowType);
+
+            if (active)
+            {
+                TryChangeWindowSortingOrder(window);
+                _windowsStack.Add(windowType);
+            }
+            else
+            {
+                _currentSortingOrder = CurrentWindow()?.GetSortingOrder() ?? 0;
+            }
+        }
+
+        private void TryChangeWindowSortingOrder(Window window)
+        {
+            var currentWindowSortingOrder = CurrentWindow()?.GetSortingOrder() ?? 0;
+            
+            if (currentWindowSortingOrder > _currentSortingOrder)
+            {
+                return;
+            }
+
+            _currentSortingOrder++;
+            window.SetSortingOrder(_currentSortingOrder);
         }
     }
 }

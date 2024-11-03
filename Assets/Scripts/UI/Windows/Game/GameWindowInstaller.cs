@@ -5,7 +5,7 @@ namespace UI.Windows.Game
 {
     public class GameWindowInstaller : MonoInstaller
     {
-        [SerializeField] private GameWindowView gameWindowView;
+        [SerializeField] private GameWindowView _gameWindowView;
         
         public override void InstallBindings()
         {
@@ -14,13 +14,19 @@ namespace UI.Windows.Game
             BindGameWindowController();
         }
 
-        private void BindGameWindowView() =>
-            Container.Bind<GameWindowView>().FromInstance(gameWindowView).AsSingle().NonLazy();
+        private void BindGameWindowView()
+        {
+            Container.Bind<GameWindowView>().FromInstance(_gameWindowView).AsSingle().NonLazy();
+        }
 
-        private void BindGameWindowModel() =>
+        private void BindGameWindowModel()
+        {
             Container.Bind<GameWindowModel>().AsSingle().NonLazy();
+        }
 
-        private void BindGameWindowController() =>
+        private void BindGameWindowController()
+        {
             Container.Bind<IInitializable>().To<GameWindowController>().AsSingle().NonLazy();
+        }
     }
 }

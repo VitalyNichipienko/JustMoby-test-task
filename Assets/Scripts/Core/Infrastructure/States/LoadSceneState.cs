@@ -18,10 +18,14 @@ namespace Core.Infrastructure.States
 
         public void Enter() { }
 
-        public void Enter(LoadingScenes scene) => 
+        public void Enter(LoadingScenes scene)
+        {
             _sceneLoader.Load(scene, OnLoaded);
+        }
 
-        private void OnLoaded() => 
+        private void OnLoaded()
+        {
             _stateMachine.Enter<GameState>();
+        }
     }
 }

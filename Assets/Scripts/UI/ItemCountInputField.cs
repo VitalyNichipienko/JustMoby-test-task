@@ -1,6 +1,9 @@
 using System;
+using Core.Data;
+using Core.Data.Game;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace UI
 {
@@ -10,11 +13,19 @@ namespace UI
 
         public event Action<int> OnValueChanged;
 
-        private int _minValue = 3;
-        private int _maxValue = 6;
+        private int _minValue;
+        private int _maxValue;
+
+        [Inject]
+        private void Construct(GameData gameData)
+        {
+            _minValue = gameData.MinItemCount;
+            _maxValue = gameData.MaxItemCount;
+        }
 
         private void Awake()
         {
+            HandleValueChanged(_minValue.ToString());
             _inputField.onValueChanged.AddListener(HandleValueChanged);
         }
 
@@ -35,7 +46,7 @@ namespace UI
             else
             {
                 Debug.LogError(
-                    $"Invalid input: '{input}'. Please enter a valid integer between {_minValue} and {_maxValue}.");
+                    $"[{typeof(ItemCountInputField)}] Invalid input: '{input}'. Please enter a valid integer between {_minValue} and {_maxValue}");
             }
         }
     }

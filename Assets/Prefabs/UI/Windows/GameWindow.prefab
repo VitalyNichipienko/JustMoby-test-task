@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d71fa8a57114d46a7dba0b25f63e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameWindowView: {fileID: 273101538672006921}
+  _gameWindowView: {fileID: 273101538672006921}
 --- !u!1 &2584894801102874945
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,8 +659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ed4656edc524644a70b6483fd84e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  root: {fileID: 8699561742704200276}
-  raycaster: {fileID: 8689549506018438624}
+  Root: {fileID: 8699561742704200276}
+  Raycaster: {fileID: 8689549506018438624}
   <ReceiveOfferButton>k__BackingField: {fileID: 3837420519655157705}
   <ItemCountInputField>k__BackingField: {fileID: 5486337187164351641}
 --- !u!114 &107242486688567300

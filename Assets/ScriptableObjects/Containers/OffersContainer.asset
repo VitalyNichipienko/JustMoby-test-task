@@ -13,29 +13,50 @@ MonoBehaviour:
   m_Name: OffersContainer
   m_EditorClassIdentifier: 
   _offerEntities:
-  - <OfferId>k__BackingField: 12
+  - <OfferId>k__BackingField: Construction Resources
     <Offer>k__BackingField:
-      <OfferName>k__BackingField: 
-      <OfferDescription>k__BackingField: 
-      <OfferIconName>k__BackingField: 
+      <OfferName>k__BackingField: Construction Resources
+      <OfferDescription>k__BackingField: Construction Resources
+      <OfferIconName>k__BackingField: ConstructionResourcesIcon
       <RegularPrice>k__BackingField: 100
       <DiscountPercentage>k__BackingField: 35
       <IsDiscountActive>k__BackingField: 1
       _items:
-      - <Count>k__BackingField: 10
-        <IconName>k__BackingField: 
-      - <Count>k__BackingField: 20
-        <IconName>k__BackingField: 
-  - <OfferId>k__BackingField: 213
+      - <ItemData>k__BackingField: {fileID: 11400000, guid: aea68d3efa8b4cd4b90488a166610d8a, type: 2}
+        <ItemCount>k__BackingField: 40
+  - <OfferId>k__BackingField: Beginner Builder's Kit
     <Offer>k__BackingField:
-      <OfferName>k__BackingField: 
-      <OfferDescription>k__BackingField: 
-      <OfferIconName>k__BackingField: 
+      <OfferName>k__BackingField: Beginner Builder's Kit
+      <OfferDescription>k__BackingField: Beginner Builder's Kit
+      <OfferIconName>k__BackingField: BeginnerBuilder'sKitIcon
       <RegularPrice>k__BackingField: 200
       <DiscountPercentage>k__BackingField: 27
       <IsDiscountActive>k__BackingField: 1
       _items:
-      - <Count>k__BackingField: 40
-        <IconName>k__BackingField: 
-      - <Count>k__BackingField: 30
-        <IconName>k__BackingField: 
+      - <ItemData>k__BackingField: {fileID: 11400000, guid: 314b32e019063ab43a7d07c2d389ef08, type: 2}
+        <ItemCount>k__BackingField: 1
+      - <ItemData>k__BackingField: {fileID: 11400000, guid: aea68d3efa8b4cd4b90488a166610d8a, type: 2}
+        <ItemCount>k__BackingField: 40
+      - <ItemData>k__BackingField: {fileID: 11400000, guid: 4bee4643372b32a40b48147a31043190, type: 2}
+        <ItemCount>k__BackingField: 20
+      - <ItemData>k__BackingField: {fileID: 11400000, guid: 61f879d150c472e4f98027415db150fb, type: 2}
+        <ItemCount>k__BackingField: 20
+      - <ItemData>k__BackingField: {fileID: 11400000, guid: af33e01f3f54a4f4ba4588efa7d6439a, type: 2}
+        <ItemCount>k__BackingField: 20
+      - <ItemData>k__BackingField: {fileID: 11400000, guid: 47b1705d36613a741856bb1d44f1b755, type: 2}
+        <ItemCount>k__BackingField: 20
+  - <OfferId>k__BackingField: Explorer's Kit
+    <Offer>k__BackingField:
+      <OfferName>k__BackingField: Explorer's Kit
+      <OfferDescription>k__BackingField: Explorer's Kit
+      <OfferIconName>k__BackingField: Explorer'sKitIcon
+      <RegularPrice>k__BackingField: 200
+      <DiscountPercentage>k__BackingField: 27
+      <IsDiscountActive>k__BackingField: 0
+      _items:
+      - <ItemData>k__BackingField: {fileID: 11400000, guid: e2c7e5b4c441c2845837930df92b3f7b, type: 2}
+        <ItemCount>k__BackingField: 1
+      - <ItemData>k__BackingField: {fileID: 11400000, guid: 9bd5ad9209afeee4f8d941ee48d78607, type: 2}
+        <ItemCount>k__BackingField: 1
+      - <ItemData>k__BackingField: {fileID: 11400000, guid: 06fe196dfb597a5458c6c08d85c1c758, type: 2}
+        <ItemCount>k__BackingField: 1

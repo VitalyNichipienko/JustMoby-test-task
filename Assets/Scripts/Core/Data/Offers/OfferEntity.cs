@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Core.Data
+namespace Core.Data.Offers
 {
     [Serializable]
     public class OfferEntity

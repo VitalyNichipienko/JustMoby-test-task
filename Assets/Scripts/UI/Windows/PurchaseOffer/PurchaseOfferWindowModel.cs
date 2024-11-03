@@ -1,26 +1,22 @@
-﻿using Core.Data;
+﻿using Core.Data.Offers;
 using UnityEngine;
 using Zenject;
 
 namespace UI.Windows.PurchaseOffer
 {
-    public class PurchaseOfferWindowModel// : IInitializable
+    public class PurchaseOfferWindowModel
     {
-        private GameData _gameData;
-        private OffersContainer _offersContainer;
+        private readonly OffersContainer _offersContainer;
         
         public OfferEntity CurrentOffer { get; private set; }
 
         [Inject]
-        public PurchaseOfferWindowModel(OffersContainer offersContainer, GameData gameData)
+        public PurchaseOfferWindowModel(OffersContainer offersContainer)
         {
-            _gameData = gameData;
             _offersContainer = offersContainer;
-            
-            Initialize();
         }
 
-        public void Initialize()
+        public void UpdateOffer()
         {
             var offersArray = _offersContainer.OfferEntities;
 
@@ -31,7 +27,19 @@ namespace UI.Windows.PurchaseOffer
             }
             else
             {
-                Debug.LogWarning("OfferEntities array is empty.");
+                Debug.LogError($"[{typeof(PurchaseOfferWindowModel)}] OfferEntities array is empty");
+            }
+        }
+
+        public void BuyOffer()
+        {
+            if (CurrentOffer != null)
+            {
+                Debug.Log($"[{typeof(PurchaseOfferWindowModel)}] Offer purchased: {CurrentOffer.OfferId}");
+            }
+            else
+            {
+                Debug.LogError($"[{typeof(PurchaseOfferWindowModel)}] No active offer available to purchase");
             }
         }
     }

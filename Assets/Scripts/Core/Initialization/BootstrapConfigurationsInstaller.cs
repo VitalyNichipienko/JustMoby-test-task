@@ -1,4 +1,5 @@
 using Core.Data;
+using Core.Data.Offers;
 using Core.Infrastructure.UiManagement;
 using UI.Configurations;
 using UnityEngine;
@@ -9,24 +10,37 @@ namespace Core.Initialization
     [CreateAssetMenu(menuName = "Installers/Create bootstrap configs installer", fileName = "BootstrapConfigsInstaller")]
     public class BootstrapConfigurationsInstaller : ScriptableObjectInstaller
     {
-        [SerializeField] private WindowsPrefabsContainer windowsPrefabsContainer;
-        [SerializeField] private UiConfiguration uiConfiguration;
-        [SerializeField] private OffersContainer offersContainer;
+        [SerializeField] private WindowsPrefabsContainer _windowsPrefabsContainer;
+        [SerializeField] private UiConfiguration _uiConfiguration;
+        [SerializeField] private OffersContainer _offersContainer;
+        [SerializeField] private OfferConfiguration _offerConfiguration;
         
         public override void InstallBindings()
         {
             BindWindowsPrefabsContainer();
             BindUiConfiguration();
             BindOffersContainer();
+            BindOfferConfiguration();
         }
 
-        private void BindWindowsPrefabsContainer() => 
-            Container.Bind<WindowsPrefabsContainer>().FromInstance(windowsPrefabsContainer).AsSingle().NonLazy();
+        private void BindOfferConfiguration()
+        {
+            Container.Bind<OfferConfiguration>().FromInstance(_offerConfiguration).AsSingle().NonLazy();
+        }
 
-        private void BindUiConfiguration() =>
-            Container.Bind<UiConfiguration>().FromInstance(uiConfiguration).AsSingle().NonLazy();
+        private void BindWindowsPrefabsContainer()
+        {
+            Container.Bind<WindowsPrefabsContainer>().FromInstance(_windowsPrefabsContainer).AsSingle().NonLazy();
+        }
 
-        private void BindOffersContainer() => 
-            Container.Bind<OffersContainer>().FromInstance(offersContainer).AsSingle().NonLazy();
+        private void BindUiConfiguration()
+        {
+            Container.Bind<UiConfiguration>().FromInstance(_uiConfiguration).AsSingle().NonLazy();
+        }
+
+        private void BindOffersContainer()
+        {
+            Container.Bind<OffersContainer>().FromInstance(_offersContainer).AsSingle().NonLazy();
+        }
     }
 }

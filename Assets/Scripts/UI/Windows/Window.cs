@@ -6,26 +6,38 @@ namespace UI.Windows
 {
     public class Window : MonoBehaviour
     {
-        [SerializeField] protected Canvas root;
-        [SerializeField] protected GraphicRaycaster raycaster;
+        [SerializeField] protected Canvas Root;
+        [SerializeField] protected GraphicRaycaster Raycaster;
+        private int _sortingOrder;
 
-        public event Action WindowShown;
-        public event Action WindowHidden;
+        public event Action OnWindowShow;
+        public event Action OnWindowHide;
 
         public virtual void Show()
         {
-            raycaster.enabled = true;
-            root.enabled = true;
+            Raycaster.enabled = true;
+            Root.enabled = true;
             
-            WindowShown?.Invoke();
+            OnWindowShow?.Invoke();
         }
 
         public virtual void Hide()
         {
-            raycaster.enabled = false;
-            root.enabled = false;
+            Raycaster.enabled = false;
+            Root.enabled = false;
             
-            WindowHidden?.Invoke();
+            OnWindowHide?.Invoke();
+        }
+
+        public void SetSortingOrder(int order)
+        {
+            _sortingOrder = order;
+            Root.sortingOrder = order; 
+        }
+
+        public int GetSortingOrder()
+        {
+            return _sortingOrder; 
         }
     }
 }

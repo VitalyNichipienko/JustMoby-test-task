@@ -8,11 +8,11 @@ namespace Core.Infrastructure.UiManagement
 {
     public class WindowsPool : MonoBehaviour
     {
-        [SerializeField] private Canvas root;
+        [SerializeField] private Canvas _root;
 
+        private readonly Dictionary<Type, Window> _cachedWindows = new Dictionary<Type, Window>();
+        
         private WindowsPrefabsContainer _windowsPrefabsContainer;
-
-        private Dictionary<Type, Window> _cachedWindows = new Dictionary<Type, Window>();
         private CommonFactory _commonFactory;
 
         [Inject]
@@ -34,7 +34,7 @@ namespace Core.Infrastructure.UiManagement
 
             if (_windowsPrefabsContainer.TryGet(type, out Window prefab))
             {
-                var instance =  _commonFactory.Instantiate(prefab, root.transform);
+                var instance =  _commonFactory.Instantiate(prefab, _root.transform);
                 _cachedWindows.Add(type, instance);
                 return instance;
             }

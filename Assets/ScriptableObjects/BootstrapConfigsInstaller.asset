@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d8d3ee3c8bed44bb2afabb2edc4468, type: 3}
   m_Name: BootstrapConfigsInstaller
   m_EditorClassIdentifier: 
-  windowsPrefabsContainer: {fileID: 11400000, guid: 1c638fe9728373249abfb74d0d102b86, type: 2}
-  uiConfiguration: {fileID: 11400000, guid: 259ce6a23674ab74c966f67820ff7ad8, type: 2}
-  offersContainer: {fileID: 11400000, guid: aab60abef0d983749b2a2c12eac810a2, type: 2}
+  _windowsPrefabsContainer: {fileID: 11400000, guid: 1c638fe9728373249abfb74d0d102b86, type: 2}
+  _uiConfiguration: {fileID: 11400000, guid: 259ce6a23674ab74c966f67820ff7ad8, type: 2}
+  _offersContainer: {fileID: 11400000, guid: aab60abef0d983749b2a2c12eac810a2, type: 2}
+  _offerConfiguration: {fileID: 11400000, guid: 54ab95535d6e2004092ba82a1be3c710, type: 2}
