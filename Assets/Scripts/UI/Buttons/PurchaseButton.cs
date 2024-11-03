@@ -30,7 +30,7 @@ namespace UI.Buttons
         {
             _discountPriceText.text = discountPrice.ToString();
             _regularPriceText.text = $"<s>{regularPrice.ToString()}</s>";
-            _discountPercentageText.text = discountPercentage.ToString();
+            _discountPercentageText.text = $"-{discountPercentage.ToString()}%";
 
             SetUIElementsActive(true);
         }
