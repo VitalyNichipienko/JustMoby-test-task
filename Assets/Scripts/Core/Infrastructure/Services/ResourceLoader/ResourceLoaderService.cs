@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -10,13 +11,15 @@ namespace Core.Infrastructure.Services.ResourceLoader
         
         private readonly Dictionary<string, Object> _cache = new Dictionary<string, Object>();
 
-        public T LoadResource<T>(string resourcePath) where T : Object
+        public async UniTask<T> LoadResourceAsync<T>(string resourcePath) where T : Object
         {
             if (_cache.TryGetValue(resourcePath, out var cachedResource) && cachedResource is T resource)
             {
                 return resource;
             }
 
+            await UniTask.SwitchToMainThread();
+            
             resource = Resources.Load<T>(resourcePath);
 
             if (resource == null)
@@ -29,9 +32,9 @@ namespace Core.Infrastructure.Services.ResourceLoader
             return resource;
         }
 
-        public Sprite LoadSprite(string spriteName)
+        public async UniTask<Sprite> LoadSpriteAsync(string spriteName)
         {
-            return LoadResource<Sprite>($"{SpritePath}{spriteName}");
+            return await LoadResourceAsync<Sprite>($"{SpritePath}{spriteName}");
         }
     }
 }

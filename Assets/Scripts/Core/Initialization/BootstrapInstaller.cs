@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Core.Data;
 using Core.Data.Game;
 using Core.Infrastructure;
 using Core.Infrastructure.SceneLoad;

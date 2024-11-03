@@ -37,11 +37,11 @@ namespace UI.Windows.PurchaseOffer
             _resourceLoaderService = resourceLoaderService;
         }
         
-        public void UpdateView(Offer offer)
+        public async void UpdateView(Offer offer)
         {
             _headerText.text = offer.OfferName;
             _descriptionText.text = offer.OfferDescription;
-            _offerImage.sprite = _resourceLoaderService.LoadSprite(offer.OfferIconName);
+            _offerImage.sprite = await _resourceLoaderService.LoadSpriteAsync(offer.OfferIconName);
             
             var itemCountInOffer = _gameData.ItemCountInOffer;
             var offerItemsCount = offer.Items.Count;

@@ -19,11 +19,11 @@ namespace UI
             _resourceLoaderService = resourceLoaderService;
         }
 
-        public void Initialize(string spriteName, int itemCount)
+        public async void Initialize(string spriteName, int itemCount)
         {
             _countText.text = itemCount.ToString();
 
-            var offerSprite = _resourceLoaderService.LoadSprite(spriteName);
+            var offerSprite = await _resourceLoaderService.LoadSpriteAsync(spriteName);
 
             if (offerSprite != null)
             {
